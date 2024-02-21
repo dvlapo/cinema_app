@@ -1,6 +1,6 @@
 import 'package:cinema_app/widgets/body_text.dart';
+import 'package:cinema_app/widgets/star_ratings.dart';
 import 'package:flutter/material.dart';
-import 'package:rate_in_stars/rate_in_stars.dart';
 
 class MovieCard extends StatelessWidget {
   final Map movie;
@@ -32,11 +32,10 @@ class MovieCard extends StatelessWidget {
             width: 120,
             child: BodyText(
               text: movie['title'],
-              isBold: true,
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          RatingStars(
+          StarRatings(
             rating: movie['rating'],
             editable: false,
             color: Colors.amber,

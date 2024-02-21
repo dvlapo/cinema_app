@@ -1,12 +1,15 @@
 import 'package:cinema_app/utils/capitalize.dart';
 import 'package:cinema_app/widgets/body_text.dart';
+import 'package:cinema_app/widgets/star_ratings.dart';
 import 'package:flutter/material.dart';
-import 'package:rate_in_stars/rate_in_stars.dart';
 
 class MovieCardVariant extends StatelessWidget {
   final Map movie;
 
-  const MovieCardVariant({super.key, required this.movie});
+  const MovieCardVariant({
+    super.key,
+    required this.movie,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class MovieCardVariant extends StatelessWidget {
           children: [
             Chip(
               padding: const EdgeInsets.symmetric(
-                horizontal: 12,
+                horizontal: 10,
               ),
               backgroundColor: Theme.of(context).colorScheme.tertiary,
               shape: RoundedRectangleBorder(
@@ -45,11 +48,12 @@ class MovieCardVariant extends StatelessWidget {
             ),
             Text(
               movie['title'],
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style: const TextStyle(color: Colors.white),
             ),
-            RatingStars(
+            StarRatings(
               rating: movie['rating'],
               editable: false,
+              iconSize: 20,
             )
           ],
         )

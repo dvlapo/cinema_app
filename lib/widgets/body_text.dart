@@ -11,7 +11,7 @@ class BodyText extends StatelessWidget {
     super.key,
     required this.text,
     this.isBold = false,
-    this.size = 16,
+    this.size = 14,
     this.color,
     this.overflow,
   });

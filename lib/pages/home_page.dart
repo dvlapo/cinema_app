@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final double iconWidth = 28;
+  final double iconWidth = 22;
   late String activeCategory;
 
   List<Map<String, dynamic>> categories = [
@@ -75,15 +75,14 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Heading
-                const SizedBox(height: 10),
                 const HeadingText(
                   text: 'Categories',
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 // Filter chips
                 SizedBox(
-                  height: 50,
+                  height: 45,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: categories.length,
@@ -111,6 +110,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                             label: BodyText(
                               text: text,
+                              size: 14,
                             ),
                           ),
                         ),
@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
 
                 // Movies list
                 SizedBox(
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 // Recommended
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -182,8 +182,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
-                MovieCardVariant(movie: movies[1])
+                const SizedBox(height: 10),
+                MovieCardVariant(movie: movies[3])
               ],
             ),
           ),

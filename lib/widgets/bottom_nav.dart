@@ -9,8 +9,8 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-  final double iconWidth = 28;
-  int _currentPage = 1;
+  final double iconWidth = 22;
+  final int _currentPage = 1;
 
   @override
   Widget build(BuildContext context) {
