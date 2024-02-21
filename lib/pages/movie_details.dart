@@ -1,4 +1,6 @@
+import 'package:cinema_app/utils/capitalize.dart';
 import 'package:cinema_app/widgets/body_text.dart';
+import 'package:cinema_app/widgets/genre_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rate_in_stars/rate_in_stars.dart';
@@ -55,11 +57,27 @@ class MovieDetails extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
-                vertical: 10,
+                vertical: 20,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    children: [
+                      for (int i = 0; i < 2; i++)
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 10,
+                          ),
+                          child: GenreChip(
+                            text: movie['genres']
+                                .elementAt(i)
+                                .toString()
+                                .capitalize(),
+                          ),
+                        )
+                    ],
+                  ),
                   BodyText(
                     text: movie['title'],
                     size: 24,
@@ -87,36 +105,32 @@ class MovieDetails extends StatelessWidget {
                     text: movie['synopsis'],
                     size: 14,
                     color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Center(
+                      child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 35,
+                            vertical: 15,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.tertiary,
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: const BodyText(
+                            text: 'Reservation',
+                            isBold: false,
+                            size: 24,
+                          )),
+                    ),
                   )
                 ],
               ),
-            )
-            // Container(
-            //   padding: const EdgeInsets.symmetric(
-            //     horizontal: 20,
-            //     vertical: 10,
-            //   ),
-            //   child: Column(
-            //     children: [
-            //       ListView.builder(
-            //         scrollDirection: Axis.horizontal,
-            //         itemCount: movie['genres'].length,
-            //         itemBuilder: (BuildContext context, int index) {
-            //           return Padding(
-            //             padding: const EdgeInsets.only(right: 10),
-            //             child: GenreChip(
-            //               text: movie['genres']
-            //                   .elementAt(index)
-            //                   .toString()
-            //                   .capitalize(),
-            //             ),
-            //           );
-            //         },
-            //       ),
-            //       // BodyText(text: movie['title']),
-            //     ],
-            //   ),
-            // ),
+            ),
           ],
         ),
       ),
